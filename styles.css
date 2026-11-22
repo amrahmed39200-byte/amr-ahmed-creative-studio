@@ -49,3 +49,15 @@ body{background:var(--paper);background-image:repeating-linear-gradient(135deg,r
 @media(max-width:700px){
 .site-header{height:72px}.hero.section{padding:16px 5vw 22px}.hero-panel{display:flex;flex-direction:column;border-radius:22px;min-height:0}.hero-copy{padding:38px 26px 20px}.hero-copy .eyebrow{font-size:8px}.hero h1{font-size:clamp(58px,13vw,78px);margin:30px 0 14px}.hero-description{font-size:13px;max-width:330px}.hero-actions{margin-top:19px}.primary-action,.secondary-action{font-size:11px;padding:11px 14px}.hero-specialties{gap:18px;margin-top:27px}.hero-specialties strong{font-size:18px}.hero-specialties span{font-size:9px}.hero-art{min-height:280px;margin-top:-5px}.hero-monogram{font-size:clamp(220px,62vw,310px);transform:translate(-7%,0)}.hero-art-caption{top:8%;right:8%}.availability-card{left:5%;bottom:16px;width:82%;padding:15px 55px 15px 17px;border-radius:13px}.availability-card strong{font-size:12px;margin:5px 0}.availability-card p{font-size:10px}.availability-card>a{width:32px;height:32px;right:14px;bottom:14px}.client-strip{padding:12px 7vw 28px;justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.client-strip::-webkit-scrollbar{display:none}.client-strip span{font-size:9px}.client-strip b{font-size:11px}.section{padding:76px 7vw}.services-section,.faq-section{padding-inline:7vw}
 }
+
+/* Personal portrait integrated into the hero */
+.hero-art{background:linear-gradient(145deg,#24252a,#111216 85%);isolation:isolate}
+.hero-art-glow,.hero-monogram{display:none!important}
+.hero-portrait{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 12%;display:block;filter:grayscale(1) contrast(1.04);mix-blend-mode:normal}
+.hero-art-caption{color:#e1e1e4;text-shadow:0 1px 8px #0008}
+.availability-card{left:-12%;bottom:38px}
+@media(max-width:700px){
+.hero-art{min-height:330px}
+.hero-portrait{object-position:center 10%;object-fit:cover}
+.availability-card{left:5%;bottom:16px}
+}
