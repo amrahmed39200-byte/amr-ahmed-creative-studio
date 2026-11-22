@@ -91,13 +91,13 @@ async function logActivity(type,description,ids={}){const {error}=await db.from(
 async function deleteClient(clientId){
  const client=cache.clients.find(c=>c.id===clientId);if(!client)return;
  const label=client.name||client.email||"this client";
- if(!confirm("Delete "+label+" permanently?\n\nThe client record will be removed. Related inquiries, projects, tasks, payments and activity history will be kept, but their client link will be cleared."))return;
+ const confirmed=confirm("PERMANENTLY DELETE "+label+"?\n\nThis will delete ALL records belonging to this client, including their inquiries, projects, tasks, payments and related activity history. This cannot be undone.");
+ if(!confirmed)return;
  const button=document.querySelector('[data-delete-client="'+CSS.escape(clientId)+'"]');if(button){button.disabled=true;button.textContent="Deleting…"}
  const {data,error}=await db.from("clients").delete().eq("id",clientId).select("id").maybeSingle();
  if(error){if(button){button.disabled=false;button.textContent="Delete"}alert("Could not delete client: "+error.message);return}
  if(!data){alert("No client was deleted. Check your admin access and try again.");await loadAll();return}
- await logActivity("client_deleted","Deleted client record: "+label);
- await loadAll();toast("Client deleted. Related records were preserved.");
+ await loadAll();toast("Client and all related records were permanently deleted.");
 }
 async function updateStatus(el){el.disabled=true;const tableName=el.dataset.statusTable;const changes={status:el.value,updated_at:new Date().toISOString()};if(tableName==="payments")changes.paid_at=el.value==="paid"?new Date().toISOString():null;const {error}=await db.from(tableName).update(changes).eq("id",el.dataset.id);el.disabled=false;if(error){alert("Update failed: "+error.message);return}await logActivity("status_updated",tableName+" status changed to "+el.value,tableName==="leads"?{lead_id:el.dataset.id}:{});await loadAll();toast("Status updated.")}
 function field(name,label,type="text",required=false,extra=""){return '<label class="field"><span>'+label+(required?' *':'')+'</span><input name="'+name+'" type="'+type+'" '+(required?'required':'')+' '+extra+'></label>'}
