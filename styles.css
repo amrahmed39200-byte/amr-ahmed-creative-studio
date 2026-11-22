@@ -10,3 +10,42 @@
 .success-card h1{font:600 clamp(58px,10vw,112px)/.92 Manrope;letter-spacing:-.09em;margin:42px 0 28px}
 .success-card p{max-width:470px;color:var(--muted);font-size:14px;line-height:1.8}
 .success-card a{display:inline-block;margin-top:28px;border-bottom:1px solid;padding-bottom:9px;font-size:9px;letter-spacing:.15em;font-weight:700}
+
+
+/* Reference-led portfolio refresh: refined light studio / editorial hero */
+:root{--paper:#f5f5f6;--paper-2:#eceef1;--ink:#15151a;--muted:#777981;--line:#dedfe3;--accent:#92949a;--accent-soft:#c5c6ca;--dark:#17171b;--white:#f6f6f7;--gutter:clamp(22px,7vw,106px)}
+body{background:var(--paper);background-image:repeating-linear-gradient(135deg,rgba(20,20,25,.012) 0,rgba(20,20,25,.012) 1px,transparent 1px,transparent 4px)}
+.site-header{height:82px;border:0;background:rgba(246,246,247,.88);padding-inline:var(--gutter)}
+.wordmark{font-size:18px;letter-spacing:-.075em}.wordmark span{font-size:7px;letter-spacing:.18em;color:#85868c}
+.nav{gap:clamp(20px,3vw,42px);font-size:12px}.nav-cta{background:#17171b;color:#fff;border:1px solid #17171b;border-radius:9px;padding:13px 19px;box-shadow:0 3px 8px #0002}.nav-cta span{margin-left:14px}
+.hero.section{width:100%;max-width:1440px;padding-top:28px;padding-bottom:30px;min-height:0;display:block;overflow:visible}
+.hero-panel{min-height:470px;border-radius:28px;background:linear-gradient(112deg,#eceef2 0%,#e8e9ed 55%,#d4d6dc 100%);display:grid;grid-template-columns:1.08fr .92fr;position:relative;overflow:visible}
+.hero-copy{padding:clamp(40px,7vw,88px) 0 clamp(36px,5vw,64px) clamp(34px,7vw,84px);position:relative;z-index:2}
+.hero-copy .eyebrow{display:flex;align-items:center;gap:9px;font-size:9px;letter-spacing:.15em;color:#747680}
+.hero-copy .status-dot{margin:0;background:#7f927c}
+.hero h1{font:600 clamp(58px,7.2vw,94px)/.98 Georgia,serif;letter-spacing:-.065em;margin:42px 0 17px;max-width:580px}
+.hero h1 em{color:#92949b;font-style:normal;font-weight:600;letter-spacing:-.07em}
+.hero-description{font-size:14px;line-height:1.75;color:#555761;max-width:400px;margin:0}
+.hero-actions{display:flex;gap:10px;margin-top:23px}
+.primary-action,.secondary-action{display:inline-flex;align-items:center;gap:18px;padding:12px 17px;border-radius:9px;font-size:12px;font-weight:600}
+.primary-action{background:#17171b;color:white;box-shadow:0 3px 7px #0003}.secondary-action{border:1px solid #c9cbd1;background:#ffffff35}
+.hero-specialties{display:flex;gap:clamp(20px,3.4vw,48px);margin-top:32px}
+.hero-specialties div{display:grid;gap:5px}.hero-specialties strong{font:600 21px Georgia,serif;letter-spacing:-.04em}.hero-specialties span{font-size:10px;color:#666872}
+.hero-art{position:relative;min-height:470px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.hero-art-glow{position:absolute;width:74%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#c4c6cc 0,#d4d6dc 48%,transparent 70%);right:5%;top:5%}
+.hero-monogram{position:relative;z-index:1;font:800 clamp(210px,30vw,390px)/.8 Manrope,sans-serif;letter-spacing:-.19em;color:#24252b;transform:translateX(-8%)}
+.hero-monogram span{color:#555760}
+.hero-art-caption{position:absolute;right:8%;top:11%;z-index:2;display:grid;gap:5px;text-align:right;font-size:8px;letter-spacing:.17em;color:#656770}
+.availability-card{position:absolute;z-index:3;bottom:38px;left:-12%;width:min(330px,90%);padding:22px 65px 22px 24px;background:rgba(34,35,41,.88);color:#fff;border:1px solid #ffffff35;border-radius:16px;box-shadow:0 12px 35px #0002;backdrop-filter:blur(16px)}
+.availability-label{font-size:9px;color:#b8bac1}.availability-card strong{display:block;font-size:14px;font-weight:600;margin:8px 0}.availability-card p{font-size:11px;line-height:1.55;color:#d1d2d7;margin:0}.availability-card>a{position:absolute;right:22px;bottom:22px;width:38px;height:38px;border-radius:10px;background:white;color:#17171b;display:grid;place-items:center;font-size:19px}
+.client-strip{max-width:1440px;margin:0 auto;padding:12px var(--gutter) 48px;display:flex;align-items:center;justify-content:space-between;gap:15px;white-space:nowrap;overflow:hidden;color:#34353b}
+.client-strip span{font:600 11px Manrope;letter-spacing:-.02em}.client-strip b{font-size:14px;color:#a5a6ad}
+.section{padding-top:clamp(75px,9vw,120px);padding-bottom:clamp(75px,9vw,120px)}
+.section h2{color:#17171b}.section h2 em{color:#92949b}.services-section,.faq-section{background:#eceef1}.testimonials-section{background:#e8e9ed}
+.visual-minaras{background:#25252b}.visual-type i,.type-poster em{color:#b8b9c0}
+.filter-btn:hover,.filter-btn.active{background:#17171b;border-color:#17171b}
+.contact-section{background:#17171b}
+@media(max-width:900px){.hero-panel{grid-template-columns:1fr .8fr}.hero-copy{padding-left:5vw}.hero h1{font-size:clamp(55px,8vw,78px)}.hero-art{min-height:440px}.availability-card{left:-24%}}
+@media(max-width:700px){
+.site-header{height:72px}.hero.section{padding:16px 5vw 22px}.hero-panel{display:flex;flex-direction:column;border-radius:22px;min-height:0}.hero-copy{padding:38px 26px 20px}.hero-copy .eyebrow{font-size:8px}.hero h1{font-size:clamp(58px,13vw,78px);margin:30px 0 14px}.hero-description{font-size:13px;max-width:330px}.hero-actions{margin-top:19px}.primary-action,.secondary-action{font-size:11px;padding:11px 14px}.hero-specialties{gap:18px;margin-top:27px}.hero-specialties strong{font-size:18px}.hero-specialties span{font-size:9px}.hero-art{min-height:280px;margin-top:-5px}.hero-monogram{font-size:clamp(220px,62vw,310px);transform:translate(-7%,0)}.hero-art-caption{top:8%;right:8%}.availability-card{left:5%;bottom:16px;width:82%;padding:15px 55px 15px 17px;border-radius:13px}.availability-card strong{font-size:12px;margin:5px 0}.availability-card p{font-size:10px}.availability-card>a{width:32px;height:32px;right:14px;bottom:14px}.client-strip{padding:12px 7vw 28px;justify-content:flex-start;overflow-x:auto;scrollbar-width:none}.client-strip::-webkit-scrollbar{display:none}.client-strip span{font-size:9px}.client-strip b{font-size:11px}.section{padding:76px 7vw}.services-section,.faq-section{padding-inline:7vw}
+}
