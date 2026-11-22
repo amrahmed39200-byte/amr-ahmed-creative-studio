@@ -55,6 +55,80 @@ tbody tr:hover{background:#ffffff06}
 @media(max-width:850px){.shell{grid-template-columns:1fr}.side{position:relative;height:auto;padding:17px 15px}.brand{margin:0 5px 15px}.nav{padding-bottom:3px}.main{padding:24px 15px}.side-foot{display:none}.section{padding:16px}.stat{padding:16px;min-height:98px}.stat strong{font-size:27px}.top{margin-bottom:25px}}
 @media(min-width:851px){.nav{display:flex;flex-direction:column}.main{min-height:100vh}}
 
+/* Editorial Dark — redesigned workspace */
+:root{--bg:#09090a;--panel:#121214;--panel2:#1b1b1e;--line:#29292d;--text:#f4f2ef;--muted:#969399;--gold:#c33b55;--red:#dc7888;--green:#9ac7aa}
+body{background:#09090a;color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.shell{grid-template-columns:218px minmax(0,1fr);background:radial-gradient(ellipse at 80% 0%,#211316 0%,transparent 32%),#09090a}
+.side{position:sticky;top:0;height:100vh;padding:28px 16px;background:#0d0d0f;border-right:1px solid #242326}
+.brand{margin:8px 12px 48px;color:#f3f0ed;font-size:11px;letter-spacing:.18em}
+.brand:before{content:"AA";display:block;font:700 34px/1 Georgia,serif;letter-spacing:-.1em;color:#f4f2ef;margin-bottom:12px}
+.brand b{display:block;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#aaa5a7;margin-top:7px}
+.nav-label{color:#666168;font-size:9px;letter-spacing:.2em;margin:0 12px 12px}
+.nav button{border-radius:5px;padding:12px 13px;color:#aaa6aa;font-size:12px}
+.nav button.active,.nav button:hover{background:linear-gradient(90deg,#3b1b24,#1d171a);color:#fff}
+.nav button.active{box-shadow:inset 3px 0 #c33b55}
+.side-foot{position:absolute;bottom:22px;left:27px;color:#625d63;font-size:9px;letter-spacing:.14em}
+.main{max-width:none;padding:28px clamp(18px,3.5vw,52px);min-width:0}
+.top{margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid #242326}
+.eyebrow{color:#c34b60;font-size:9px;letter-spacing:.22em;text-transform:uppercase}
+.top h1{font:500 clamp(28px,3vw,36px)/1.08 Inter,sans-serif;letter-spacing:-.045em;margin-top:7px}
+.btn{background:#171719;border:1px solid #343237;border-radius:5px;color:#e9e5e4;font-size:11px;padding:10px 14px}
+.btn:hover{background:#242124;border-color:#8d4554}
+.btn.primary{background:#b8324d;border-color:#b8324d;color:#fff}
+.btn.primary:hover{background:#cc405b}
+.btn.danger{color:#e58c99}
+.grid{gap:12px;margin-bottom:14px}
+.stat,.section{background:#121214;border:1px solid #29282c;border-radius:7px;box-shadow:none}
+.stat{padding:17px 18px;min-height:105px;position:relative}
+.stat:after{display:none}
+.stat span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#928d93}
+.stat strong{font:500 29px/1.1 Inter,sans-serif;letter-spacing:-.05em;margin-top:12px}
+.section{padding:19px;margin-bottom:14px}
+.section h2{font:500 17px/1.2 Inter,sans-serif;letter-spacing:-.025em}
+.section-head{margin-bottom:14px}
+th{font-size:9px;letter-spacing:.14em;color:#817c83;border-bottom-color:#2a282d}
+td{font-size:11px;padding:13px 10px;border-bottom-color:#252428}
+tbody tr:hover{background:#ffffff05}
+.pill{background:#2a171d;border:1px solid #63303d;color:#e6a1ad;border-radius:4px;text-transform:uppercase;font-size:9px;letter-spacing:.07em}
+.status-select{background:#171619;border-color:#39353b;border-radius:4px}
+.editorial-hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(250px,.65fr);gap:18px;margin-bottom:15px}
+.hero-copy{position:relative;overflow:hidden;min-height:205px;padding:26px 28px;background:linear-gradient(115deg,#171416 0%,#111113 65%,#1b1115 100%);border:1px solid #30262a;border-radius:7px}
+.hero-copy:after{content:"AA";position:absolute;right:20px;bottom:-48px;font:700 clamp(130px,18vw,230px)/1 Georgia,serif;letter-spacing:-.13em;color:#ffffff08;pointer-events:none}
+.hero-copy .hero-kicker{font-size:9px;letter-spacing:.2em;color:#c34b60;text-transform:uppercase}
+.hero-copy h2{position:relative;z-index:1;font:500 clamp(29px,4vw,47px)/.98 Inter,sans-serif;letter-spacing:-.06em;margin:17px 0 10px;max-width:560px}
+.hero-copy p{position:relative;z-index:1;color:#a9a2a6;font-size:12px;margin:0}
+.hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hero-action{min-height:96px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;text-align:left;padding:16px;background:#121214;border:1px solid #2b292d;border-radius:7px;color:#eee}
+.hero-action:hover{border-color:#874050;background:#191518}
+.hero-action .action-icon{font-size:20px;color:#d15a70}
+.hero-action span:last-child{font-size:11px}
+.overview-columns{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(270px,.8fr);gap:14px}
+.overview-bottom{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:14px}
+.project-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.project-tile{padding:13px;background:#181719;border:1px solid #2b292d;border-radius:5px;min-width:0}
+.project-tile strong{display:block;font-size:12px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.project-tile small{display:block;color:#918b91;font-size:10px;margin-top:5px}
+.project-tile .project-mark{height:3px;background:#32252a;margin-bottom:12px;overflow:hidden}
+.project-tile .project-mark i{display:block;height:100%;background:#bd405a}
+.task-line{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #28262a;font-size:11px}
+.task-line:last-child{border-bottom:0}
+.task-line small{display:block;color:#8f8990;font-size:10px;margin-top:3px}
+.task-dot{width:7px;height:7px;border-radius:50%;background:#c33b55;display:inline-block;margin-right:8px}
+.activity-line{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #28262a;font-size:11px}
+.activity-line:last-child{border:0}
+.activity-symbol{width:27px;height:27px;display:grid;place-items:center;border-radius:50%;background:#2b1b20;color:#e58b9b;flex:none}
+.activity-line small{display:block;color:#89838a;font-size:10px;margin-top:3px}
+.overview-note{font-size:10px;color:#8f8990}
+.login{background:#141214;border:1px solid #30292d;border-radius:7px;box-shadow:none}
+.login h1{font:500 32px Inter,sans-serif}
+.field span{font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.field input,.field select,.field textarea{background:#0e0e10;border-color:#343137;border-radius:5px}
+.modal{background:#151416;border-color:#383238;border-radius:7px}
+.toast{background:#172019;border-color:#36513c;border-radius:5px}
+@media(max-width:1000px){.editorial-hero{grid-template-columns:1fr}.overview-columns,.overview-bottom{grid-template-columns:1fr}}
+@media(max-width:850px){.shell{grid-template-columns:1fr}.side{position:relative;height:auto;padding:16px 14px}.brand{margin:0 5px 14px}.brand:before{display:none}.brand b{display:inline;margin-left:8px}.nav{padding-bottom:3px}.side-foot{display:none}.main{padding:20px 14px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.section{padding:15px}.hero-copy{min-height:185px;padding:21px}.hero-actions{grid-template-columns:repeat(4,minmax(0,1fr))}.hero-action{min-height:82px;padding:11px}.project-list{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.hero-actions{grid-template-columns:1fr 1fr}.project-list{grid-template-columns:1fr}.top{align-items:flex-start}}
+
 </style></head>
 <body>
 <div id="loginView" class="login-wrap"><form id="loginForm" class="login"><div class="eyebrow">Private workspace</div><h1>Studio Admin</h1><p class="muted">Sign in to manage your studio.</p><label class="field"><span>Email address</span><input id="email" type="email" autocomplete="username" required value="amr.ahmed39200@gmail.com"></label><label class="field"><span>Password</span><input id="password" type="password" autocomplete="current-password" required></label><button class="btn primary" style="width:100%" id="loginBtn">Sign in</button><div class="error" id="loginError" role="alert"></div><p class="notice">Private access only. Registration is disabled.</p></form></div>
@@ -90,10 +164,13 @@ if(currentPage==="overview"){
  const pendingTasks=tasks.filter(x=>x.status!=="done").length;
  const doneTasks=tasks.filter(x=>x.status==="done").length;
  const taskProgress=tasks.length?Math.round(doneTasks/tasks.length*100):0;
- const money=n=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:2}).format(n);
- const projectRows=activeProjects.slice().sort((a,b)=>(a.due_date||"9999").localeCompare(b.due_date||"9999")).slice(0,6);
- const paymentRows=payments.slice().sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).slice(0,6);
- html='<div class="eyebrow" style="margin-bottom:12px">Business snapshot</div><div class="grid">'+stat("Total contracted",money(booked))+stat("Money received",money(received))+stat("Still to collect",money(outstanding))+stat("Received this month",money(monthReceived))+'</div><div class="grid">'+stat("Active projects",activeProjects.length)+stat("Completed projects",projects.filter(x=>x.status==="completed").length)+stat("Active clients",clients.filter(x=>x.status==="active").length)+stat("New inquiries",leads.filter(x=>x.status==="new").length)+'</div><section class="section"><div class="section-head"><h2>Work progress</h2><span class="muted">'+doneTasks+' of '+tasks.length+' tasks completed</span></div><div style="height:9px;background:#303030;border-radius:20px;overflow:hidden;margin:16px 0 9px"><div style="height:100%;width:'+taskProgress+'%;background:var(--gold);border-radius:20px"></div></div><div class="muted">'+taskProgress+'% complete · '+pendingTasks+' tasks remaining · '+overdueTasks+' overdue</div></section><section class="section"><div class="section-head"><h2>Upcoming & active projects</h2><button class="btn" data-go="projects">All projects</button></div>'+table(projectRows,[{label:"Project",key:"name"},{label:"Client",render:r=>esc(clients.find(x=>x.id===r.client_id)?.name||"—")},{label:"Status",render:r=>'<span class="pill">'+esc(r.status.replaceAll("_"," "))+'</span>'},{label:"Delivery",render:r=>fmtDate(r.due_date)},{label:"Value",render:r=>money(Number(r.total_amount||0))}])+'</section><section class="section"><div class="section-head"><h2>Recent payments</h2><button class="btn" data-go="payments">All payments</button></div>'+table(paymentRows,[{label:"Description",render:r=>esc(r.description||r.payment_type)},{label:"Project",render:r=>esc(projects.find(p=>p.id===r.project_id)?.name||"—")},{label:"Amount",render:r=>money(Number(r.amount||0))},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'},{label:"Paid date",render:r=>fmtDate(r.paid_at)}])+'</section><section class="section"><div class="section-head"><h2>Recent inquiries</h2><button class="btn" data-go="leads">View all</button></div>'+table(leads.slice(0,5),[{label:"Client",key:"name"},{label:"Service",key:"service"},{label:"Received",render:r=>fmtDate(r.created_at)},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'}])+'</section>';
+ const money=n=>new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",maximumFractionDigits:0}).format(n);
+ const projectRows=activeProjects.slice().sort((a,b)=>(a.due_date||"9999").localeCompare(b.due_date||"9999")).slice(0,4);
+ const taskRows=tasks.filter(x=>x.status!=="done").slice(0,5);
+ const recentLeads=leads.slice(0,4);
+ const recentPayments=payments.slice().sort((a,b)=>new Date(b.created_at)-new Date(a.created_at)).slice(0,4);
+ const pct=n=>Math.max(0,Math.min(100,n));
+ html='<div class="editorial-hero"><section class="hero-copy"><div class="hero-kicker">Amr Ahmed Creative Studio · Private workspace</div><h2>Good work.<br>Great stories.</h2><p>Your studio at a glance — projects, clients, tasks and money, all in one place.</p></section><div class="hero-actions"><button class="hero-action" data-add="projects"><span class="action-icon">＋</span><span>New project</span></button><button class="hero-action" data-add="clients"><span class="action-icon">↗</span><span>Add client</span></button><button class="hero-action" data-add="tasks"><span class="action-icon">☑</span><span>Create task</span></button><button class="hero-action" data-go="payments"><span class="action-icon">＄</span><span>View payments</span></button></div></div><div class="eyebrow" style="margin:5px 0 11px">Studio overview / 01</div><div class="grid">'+stat("Total clients",clients.length)+stat("Active projects",activeProjects.length)+stat("Revenue received",money(received))+stat("Tasks to complete",pendingTasks)+'</div><div class="overview-columns"><section class="section"><div class="section-head"><h2>Projects in motion</h2><button class="btn" data-go="projects">All projects ↗</button></div>'+(projectRows.length?'<div class="project-list">'+projectRows.map(p=>'<div class="project-tile"><div class="project-mark"><i style="width:'+pct(p.status==="review"?85:p.status==="in_progress"?55:p.status==="planning"?20:35)+'%"></i></div><strong>'+esc(p.name)+'</strong><small>'+esc(clients.find(c=>c.id===p.client_id)?.name||"Unassigned client")+' · '+esc((p.status||"").replaceAll("_"," "))+'</small></div>').join("")+'</div>':'<div class="empty">No active projects yet.</div>')+'</section><section class="section"><div class="section-head"><h2>Task board</h2><button class="btn" data-go="tasks">All tasks ↗</button></div>'+(taskRows.length?taskRows.map(t=>'<div class="task-line"><div><span class="task-dot"></span>'+esc(t.title)+'<small>'+esc(projects.find(p=>p.id===t.project_id)?.name||"No project")+'</small></div><span class="overview-note">'+esc(t.priority||"normal")+'</span></div>').join(""):'<div class="empty">All caught up. No open tasks.</div>')+'<p class="overview-note" style="margin:12px 0 0">'+doneTasks+' completed · '+overdueTasks+' overdue · '+taskProgress+'% overall completion</p></section></div><div class="overview-bottom"><section class="section"><div class="section-head"><h2>Recent inquiries</h2><button class="btn" data-go="leads">View inquiries ↗</button></div>'+(recentLeads.length?recentLeads.map(l=>'<div class="activity-line"><div class="activity-symbol">✳</div><div style="min-width:0"><strong>'+esc(l.name)+'</strong><small>'+esc(l.service||"New project inquiry")+' · '+fmtDate(l.created_at)+' · '+esc(l.status)+'</small></div></div>').join(""):'<div class="empty">No inquiries yet.</div>')+'</section><section class="section"><div class="section-head"><h2>Financial snapshot</h2><button class="btn" data-go="payments">Payments ↗</button></div><div class="task-line"><span>Contracted value</span><strong>'+money(booked)+'</strong></div><div class="task-line"><span>Received this month</span><strong>'+money(monthReceived)+'</strong></div><div class="task-line"><span>Outstanding</span><strong>'+money(outstanding)+'</strong></div><div class="overview-note" style="margin-top:13px">Latest payment records</div>'+(recentPayments.length?recentPayments.slice(0,2).map(p=>'<div class="task-line"><span>'+esc(p.description||p.payment_type||"Payment")+'</span><span>'+money(Number(p.amount||0))+' · '+esc(p.status)+'</span></div>').join(""):'<div class="overview-note">No payments recorded yet.</div>')+'</section></div>';
 }
 else{const cfg={
 leads:{rows:leads,cols:[{label:"Name",key:"name"},{label:"Email",key:"email"},{label:"Company",key:"company"},{label:"Service",key:"service"},{label:"Budget",key:"budget"},{label:"Received",render:r=>fmtDate(r.created_at)},{label:"Status",render:r=>statusControl("leads",r,["new","contacted","quoted","negotiating","won","lost"])},{label:"Next step",render:r=>r.client_id?'<span class="pill">Client created</span>':'<button class="btn primary" data-convert="' + esc(r.id) + '">Accept & set up</button>'}]},
@@ -104,6 +181,7 @@ payments:{rows:payments,cols:[{label:"Description",render:r=>esc(r.description||
 };const c=cfg[currentPage];html='<section class="section"><div class="section-head"><h2>'+labels[currentPage]+'</h2><div><span class="muted" style="margin-right:12px">'+c.rows.length+' records</span><button class="btn primary" id="addBtn">+ Add '+labels[currentPage].replace(/s$/,"").replace("Inquirie","Inquiry")+'</button></div></div>'+table(c.rows,c.cols)+'</section>';}
 $("content").innerHTML=html;
 document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+document.querySelectorAll("[data-add]").forEach(b=>b.addEventListener("click",()=>openAdd(b.dataset.add)));
 document.querySelectorAll("[data-status-table]").forEach(s=>s.addEventListener("change",()=>updateStatus(s)));
 document.querySelectorAll("[data-convert]").forEach(b=>b.addEventListener("click",()=>openConvert(b.dataset.convert)));
 document.querySelectorAll("[data-delete-client]").forEach(b=>b.addEventListener("click",()=>deleteClient(b.dataset.deleteClient)));
