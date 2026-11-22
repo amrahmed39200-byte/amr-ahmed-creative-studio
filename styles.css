@@ -73,3 +73,23 @@ body{background:var(--paper);background-image:repeating-linear-gradient(135deg,r
 .hero-portrait{height:112%;max-width:100%;right:0;object-position:bottom right}
 .hero-art-caption{top:8%;right:7%}
 }
+
+/* Final hero portrait scale adjustment */
+.hero-portrait {
+  height: 132%;
+  max-width: 108%;
+}
+
+@media (max-width: 900px) {
+  .hero-portrait {
+    height: 124%;
+    max-width: 108%;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-portrait {
+    height: 116%;
+    max-width: 108%;
+  }
+}
