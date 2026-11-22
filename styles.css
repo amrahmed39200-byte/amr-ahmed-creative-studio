@@ -183,3 +183,8 @@ body{background:var(--paper);background-image:repeating-linear-gradient(135deg,r
   .hero-orbit{width:min(76%,280px);right:8%}
   .hero-symbol{font-size:clamp(170px,48vw,250px)}
 }
+
+/* Remove the oversized A mark from the hero */
+.hero-symbol {
+  display: none !important;
+}
