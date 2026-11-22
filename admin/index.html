@@ -1,93 +1,75 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>Studio Admin — Amr Ahmed</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-:root{--bg:#101010;--panel:#191919;--panel2:#202020;--line:#303030;--text:#f4f1eb;--muted:#aaa49b;--gold:#c5a477;--red:#d98a80;--green:#9fc5a7}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,sans-serif}button,input{font:inherit}button{cursor:pointer}.shell{min-height:100vh;display:grid;grid-template-columns:240px 1fr}.side{padding:28px 18px;border-right:1px solid var(--line);background:#141414}.brand{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:4px 10px 42px}.brand b{display:block;color:var(--text);font-size:17px;letter-spacing:.04em;margin-top:8px}.nav-label{font-size:10px;letter-spacing:.16em;color:#777;text-transform:uppercase;margin:24px 10px 10px}.nav button{display:block;width:100%;text-align:left;border:0;background:transparent;color:var(--muted);padding:11px 12px;border-radius:8px;margin:3px 0}.nav button.active,.nav button:hover{background:#26231f;color:var(--text)}.nav button.active{box-shadow:inset 2px 0 var(--gold)}.side-foot{position:sticky;top:90vh;margin:40px 10px 0;color:#777;font-size:12px}.main{padding:34px clamp(20px,4vw,58px);min-width:0}.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:34px}.eyebrow{color:var(--gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase}.top h1{font:400 clamp(27px,4vw,38px)/1.1 Georgia,serif;margin:8px 0 0}.muted{color:var(--muted)}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:10px 15px;border-radius:7px}.btn.primary{background:var(--gold);color:#17130e;border-color:var(--gold);font-weight:600}.btn:disabled{opacity:.5;cursor:not-allowed}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:26px}.stat,.section{background:var(--panel);border:1px solid var(--line);border-radius:12px}.stat{padding:19px}.stat span{color:var(--muted);font-size:12px}.stat strong{display:block;font:400 30px Georgia,serif;margin-top:12px}.section{padding:20px;margin-bottom:18px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.section h2{font:400 22px Georgia,serif;margin:0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th{text-align:left;color:#8f8981;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:11px 10px;border-bottom:1px solid var(--line)}td{padding:14px 10px;border-bottom:1px solid #292929;color:#e9e5df}tr:last-child td{border-bottom:0}.pill{display:inline-block;padding:4px 8px;border:1px solid #45413a;border-radius:99px;color:#d8c7ac;font-size:11px;text-transform:capitalize}.empty{padding:35px;text-align:center;color:var(--muted)}.hidden{display:none!important}.login-wrap{min-height:100vh;display:grid;place-items:center;padding:22px}.login{width:min(420px,100%);background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:34px}.login h1{font:400 30px Georgia,serif;margin:8px 0}.field{display:block;margin:18px 0}.field span{display:block;color:var(--muted);font-size:12px;margin-bottom:7px}.field input{width:100%;background:#101010;border:1px solid var(--line);border-radius:7px;padding:12px;color:var(--text);outline:none}.field input:focus{border-color:var(--gold)}.error{color:var(--red);font-size:12px;min-height:18px;margin:10px 0}.notice{color:var(--muted);font-size:12px;margin-top:20px}.loading{color:var(--muted);padding:24px}.mobile-top{display:none}
-@media(max-width:850px){.shell{grid-template-columns:1fr}.side{border-right:0;border-bottom:1px solid var(--line);padding:15px 16px}.brand{margin:0 4px 12px}.brand b{display:inline;margin-left:8px}.nav{display:flex;overflow:auto;gap:4px}.nav-label,.side-foot{display:none}.nav button{white-space:nowrap;width:auto}.main{padding:24px 16px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.top{align-items:flex-start}.top .btn{white-space:nowrap}}
-</style>
-</head>
+:root{--bg:#101010;--panel:#191919;--panel2:#222;--line:#303030;--text:#f4f1eb;--muted:#aaa49b;--gold:#c5a477;--red:#d98a80;--green:#9fc5a7}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,system-ui,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}.shell{min-height:100vh;display:grid;grid-template-columns:230px 1fr}.side{padding:26px 17px;border-right:1px solid var(--line);background:#141414}.brand{font-size:12px;letter-spacing:.16em;color:var(--gold);margin:4px 10px 35px}.brand b{display:block;color:var(--text);font-size:17px;letter-spacing:.03em;margin-top:7px}.nav-label{font-size:10px;letter-spacing:.16em;color:#777;margin:22px 10px 9px}.nav button{display:block;width:100%;text-align:left;border:0;background:transparent;color:var(--muted);padding:11px 12px;border-radius:8px;margin:3px 0}.nav button.active,.nav button:hover{background:#26231f;color:var(--text)}.nav button.active{box-shadow:inset 2px 0 var(--gold)}.side-foot{margin:38px 10px;color:#777;font-size:11px}.main{padding:32px clamp(18px,4vw,54px);min-width:0}.top,.section-head{display:flex;justify-content:space-between;align-items:center;gap:14px}.top{margin-bottom:30px}.eyebrow{color:var(--gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase}.top h1{font:400 clamp(27px,4vw,38px)/1.1 Georgia,serif;margin:8px 0 0}.muted{color:var(--muted)}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);padding:9px 14px;border-radius:7px}.btn.primary{background:var(--gold);color:#17130e;border-color:var(--gold);font-weight:600}.btn.danger{color:var(--red)}.btn:disabled{opacity:.5;cursor:wait}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:22px}.stat,.section{background:var(--panel);border:1px solid var(--line);border-radius:12px}.stat{padding:18px}.stat span{color:var(--muted);font-size:12px}.stat strong{display:block;font:400 30px Georgia,serif;margin-top:10px}.section{padding:19px;margin-bottom:17px}.section h2{font:400 22px Georgia,serif;margin:0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:650px}th{text-align:left;color:#8f8981;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;padding:11px 9px;border-bottom:1px solid var(--line)}td{padding:12px 9px;border-bottom:1px solid #292929;color:#e9e5df}tr:last-child td{border-bottom:0}.pill{display:inline-block;padding:4px 8px;border:1px solid #45413a;border-radius:99px;color:#d8c7ac;font-size:11px;text-transform:capitalize}.empty{padding:30px;text-align:center;color:var(--muted)}.login-wrap{min-height:100vh;display:grid;place-items:center;padding:22px}.login{width:min(420px,100%);background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:32px}.login h1{font:400 30px Georgia,serif;margin:8px 0}.field{display:block;margin:14px 0}.field span{display:block;color:var(--muted);font-size:12px;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;background:#101010;border:1px solid var(--line);border-radius:7px;padding:11px;color:var(--text);outline:none}.field textarea{min-height:80px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}.error{color:var(--red);font-size:12px;min-height:18px;margin:10px 0}.notice{color:var(--muted);font-size:12px;margin-top:18px}.modal-backdrop{position:fixed;inset:0;background:#000b;display:grid;place-items:center;padding:18px;z-index:5}.modal{width:min(560px,100%);max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:22px}.modal h2{font:400 24px Georgia,serif;margin:0}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.toast{padding:11px 14px;border:1px solid var(--line);border-radius:8px;margin-bottom:15px;color:var(--green)}.status-select{background:#111;color:#eee;border:1px solid #444;padding:6px;border-radius:6px}.mobile-top{display:none}
+@media(max-width:850px){.shell{grid-template-columns:1fr}.side{border-right:0;border-bottom:1px solid var(--line);padding:14px}.brand{margin:0 5px 12px}.brand b{display:inline;margin-left:8px}.nav-label,.side-foot{display:none}.nav{display:flex;overflow:auto;gap:4px}.nav button{white-space:nowrap;width:auto}.main{padding:22px 15px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.top{align-items:flex-start}.form-grid{grid-template-columns:1fr}}
+</style></head>
 <body>
-<div id="loginView" class="login-wrap">
-  <form id="loginForm" class="login">
-    <div class="eyebrow">Private workspace</div>
-    <h1>Studio Admin</h1>
-    <p class="muted">Sign in to manage your clients, projects and inquiries.</p>
-    <label class="field"><span>Email address</span><input id="email" type="email" autocomplete="username" required value=""></label>
-    <label class="field"><span>Password</span><input id="password" type="password" autocomplete="current-password" required></label>
-    <button class="btn primary" style="width:100%" id="loginBtn">Sign in</button>
-    <div class="error" id="loginError" role="alert"></div>
-    <p class="notice">Private access only. New account registration is not available here.</p>
-  </form>
-</div>
-<div id="appView" class="shell hidden">
-  <aside class="side">
-    <div class="brand">AMR AHMED <b>Creative Studio</b></div>
-    <div class="nav-label">Workspace</div>
-    <nav class="nav" id="nav">
-      <button class="active" data-page="overview">Overview</button>
-      <button data-page="leads">Inquiries</button>
-      <button data-page="clients">Clients</button>
-      <button data-page="projects">Projects</button>
-      <button data-page="tasks">Tasks</button>
-      <button data-page="payments">Payments</button>
-    </nav>
-    <div class="side-foot">PRIVATE ADMIN AREA · 2026</div>
-  </aside>
-  <main class="main">
-    <header class="top"><div><div class="eyebrow">Creative studio management</div><h1 id="pageTitle">Overview</h1></div><button class="btn" id="logoutBtn">Sign out</button></header>
-    <div id="content"><div class="loading">Loading workspace…</div></div>
-  </main>
-</div>
+<div id="loginView" class="login-wrap"><form id="loginForm" class="login"><div class="eyebrow">Private workspace</div><h1>Studio Admin</h1><p class="muted">Sign in to manage your studio.</p><label class="field"><span>Email address</span><input id="email" type="email" autocomplete="username" required value="amr.ahmed39200@gmail.com"></label><label class="field"><span>Password</span><input id="password" type="password" autocomplete="current-password" required></label><button class="btn primary" style="width:100%" id="loginBtn">Sign in</button><div class="error" id="loginError" role="alert"></div><p class="notice">Private access only. Registration is disabled.</p></form></div>
+<div id="appView" class="shell hidden"><aside class="side"><div class="brand">AMR AHMED <b>Creative Studio</b></div><div class="nav-label">Workspace</div><nav class="nav" id="nav"><button class="active" data-page="overview">Overview</button><button data-page="leads">Inquiries</button><button data-page="clients">Clients</button><button data-page="projects">Projects</button><button data-page="tasks">Tasks</button><button data-page="payments">Payments</button></nav><div class="side-foot">PRIVATE ADMIN AREA · 2026</div></aside><main class="main"><header class="top"><div><div class="eyebrow">Creative studio management</div><h1 id="pageTitle">Overview</h1></div><button class="btn" id="logoutBtn">Sign out</button></header><div id="toast" class="toast hidden"></div><div id="content"><div class="muted">Loading workspace…</div></div></main></div>
+<div id="modalRoot"></div>
 <script>
-const SUPABASE_URL = "https://dglthsfxatckgtwdedir.supabase.co";
-const SUPABASE_KEY = "sb_publishable_rFbxDp-FGKrdN7AmiDF4Ug_FpXUFNN5";
-const ADMIN_EMAIL = "amr.ahmed39200@gmail.com";
-const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-const $ = (id) => document.getElementById(id);
-let currentPage = "overview";
-let cache = {leads:[],clients:[],projects:[],tasks:[],payments:[]};
-const labels = {overview:"Overview",leads:"Inquiries",clients:"Clients",projects:"Projects",tasks:"Tasks",payments:"Payments"};
-const fmtDate = v => v ? new Date(v).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}) : "—";
-const esc = v => String(v ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-function showLogin(){ $("appView").classList.add("hidden"); $("loginView").classList.remove("hidden"); }
-function showApp(){ $("loginView").classList.add("hidden"); $("appView").classList.remove("hidden"); }
-async function loadAll(){
-  const tables = ["leads","clients","projects","tasks","payments"];
-  const results = await Promise.all(tables.map(t=>db.from(t).select("*").order("created_at",{ascending:false}).limit(100)));
-  for(let i=0;i<tables.length;i++){if(results[i].error) throw results[i].error;cache[tables[i]]=results[i].data||[];}
-  render();
+const SUPABASE_URL="https://dglthsfxatckgtwdedir.supabase.co";
+const SUPABASE_KEY="sb_publishable_rFbxDp-FGKrdN7AmiDF4Ug_FpXUFNN5";
+const ADMIN_EMAIL="amr.ahmed39200@gmail.com";
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+const $=id=>document.getElementById(id);
+let currentPage="overview",cache={leads:[],clients:[],projects:[],tasks:[],payments:[]};
+const labels={overview:"Overview",leads:"Inquiries",clients:"Clients",projects:"Projects",tasks:"Tasks",payments:"Payments"};
+const esc=v=>String(v??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmtDate=v=>v?new Date(v).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"—";
+const options=(values,current)=>values.map(v=>'<option value="'+esc(v[0])+'" '+(v[0]===current?'selected':'')+'>'+esc(v[1])+'</option>').join("");
+function toast(msg){$("toast").textContent=msg;$("toast").classList.remove("hidden");setTimeout(()=> $("toast").classList.add("hidden"),4500)}
+function showLogin(){$("appView").classList.add("hidden");$("loginView").classList.remove("hidden")}
+function showApp(){$("loginView").classList.add("hidden");$("appView").classList.remove("hidden")}
+async function loadAll(){const names=["leads","clients","projects","tasks","payments"];const results=await Promise.all(names.map(t=>db.from(t).select("*").order("created_at",{ascending:false}).limit(200)));for(let i=0;i<names.length;i++){if(results[i].error)throw results[i].error;cache[names[i]]=results[i].data||[]}render()}
+function stat(label,value){return '<div class="stat"><span>'+label+'</span><strong>'+value+'</strong></div>'}
+function table(rows,cols){if(!rows.length)return '<div class="empty">No records yet. Use the button above to add your first record.</div>';return '<div class="table-wrap"><table><thead><tr>'+cols.map(c=>'<th>'+c.label+'</th>').join("")+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+cols.map(c=>'<td>'+(c.render?c.render(r):esc(r[c.key]))+'</td>').join("")+'</tr>').join("")+'</tbody></table></div>'}
+function statusControl(tableName,r,values){return '<select class="status-select" data-status-table="'+tableName+'" data-id="'+r.id+'">'+options(values.map(v=>[v,v.replaceAll("_"," ")]),r.status)+'</select>'}
+function render(){const {leads,clients,projects,tasks,payments}=cache;$("pageTitle").textContent=labels[currentPage];let html="";
+if(currentPage==="overview"){html='<div class="grid">'+stat("New inquiries",leads.filter(x=>x.status==="new").length)+stat("Active clients",clients.filter(x=>x.status==="active").length)+stat("Open projects",projects.filter(x=>!["completed","cancelled"].includes(x.status)).length)+stat("Pending payments",payments.filter(x=>["pending","overdue"].includes(x.status)).length)+'</div><section class="section"><div class="section-head"><h2>Recent inquiries</h2><button class="btn" data-go="leads">View all</button></div>'+table(leads.slice(0,7),[{label:"Client",key:"name"},{label:"Service",key:"service"},{label:"Received",render:r=>fmtDate(r.created_at)},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'}])+'</section>';}
+else{const cfg={
+leads:{rows:leads,cols:[{label:"Name",key:"name"},{label:"Email",key:"email"},{label:"Company",key:"company"},{label:"Service",key:"service"},{label:"Budget",key:"budget"},{label:"Received",render:r=>fmtDate(r.created_at)},{label:"Status",render:r=>statusControl("leads",r,["new","contacted","quoted","negotiating","won","lost"])}]},
+clients:{rows:clients,cols:[{label:"Name",key:"name"},{label:"Company",key:"company"},{label:"Email",key:"email"},{label:"Country",key:"country"},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'}]},
+projects:{rows:projects,cols:[{label:"Project",key:"name"},{label:"Client",render:r=>esc(clients.find(c=>c.id===r.client_id)?.name||"—")},{label:"Service",key:"service"},{label:"Status",render:r=>statusControl("projects",r,["planning","in_progress","review","completed","on_hold","cancelled"])},{label:"Due date",render:r=>fmtDate(r.due_date)},{label:"Value",render:r=>esc(r.currency)+" "+esc(r.total_amount)}]},
+tasks:{rows:tasks,cols:[{label:"Task",key:"title"},{label:"Project",render:r=>esc(projects.find(p=>p.id===r.project_id)?.name||"—")},{label:"Priority",key:"priority"},{label:"Status",render:r=>statusControl("tasks",r,["todo","in_progress","done"])},{label:"Due date",render:r=>fmtDate(r.due_date)}]},
+payments:{rows:payments,cols:[{label:"Description",render:r=>esc(r.description||r.payment_type)},{label:"Project",render:r=>esc(projects.find(p=>p.id===r.project_id)?.name||"—")},{label:"Amount",render:r=>esc(r.currency)+" "+esc(r.amount)},{label:"Type",key:"payment_type"},{label:"Status",render:r=>statusControl("payments",r,["pending","paid","overdue","cancelled"])},{label:"Due date",render:r=>fmtDate(r.due_date)}]}
+};const c=cfg[currentPage];html='<section class="section"><div class="section-head"><h2>'+labels[currentPage]+'</h2><div><span class="muted" style="margin-right:12px">'+c.rows.length+' records</span><button class="btn primary" id="addBtn">+ Add '+labels[currentPage].replace(/s$/,"").replace("Inquirie","Inquiry")+'</button></div></div>'+table(c.rows,c.cols)+'</section>';}
+$("content").innerHTML=html;
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
+document.querySelectorAll("[data-status-table]").forEach(s=>s.addEventListener("change",()=>updateStatus(s)));
+const add=$("addBtn");if(add)add.addEventListener("click",()=>openAdd(currentPage));
 }
-function statCard(label,value){return '<div class="stat"><span>'+label+'</span><strong>'+value+'</strong></div>'}
-function tableView(rows,cols){if(!rows.length)return '<div class="empty">Nothing here yet. New records will appear here.</div>';return '<div class="table-wrap"><table><thead><tr>'+cols.map(c=>'<th>'+c.label+'</th>').join('')+'</tr></thead><tbody>'+rows.map(r=>'<tr>'+cols.map(c=>'<td>'+ (c.render?c.render(r):esc(r[c.key])) +'</td>').join('')+'</tr>').join('')+'</tbody></table></div>'}
-function render(){
-  $("pageTitle").textContent=labels[currentPage];
-  const leads=cache.leads, clients=cache.clients, projects=cache.projects, tasks=cache.tasks, payments=cache.payments;
-  if(currentPage==="overview"){
-    $("content").innerHTML='<div class="grid">'+statCard("New inquiries",leads.filter(x=>x.status==="new").length)+statCard("Active clients",clients.filter(x=>x.status!=="inactive").length)+statCard("Open projects",projects.filter(x=>!["completed","cancelled"].includes(x.status)).length)+statCard("Pending payments",payments.filter(x=>x.status==="pending"||x.status==="overdue").length)+'</div><section class="section"><div class="section-head"><h2>Recent inquiries</h2><button class="btn" data-go="leads">View all</button></div>'+tableView(leads.slice(0,6),[{label:"Client",key:"name"},{label:"Service",key:"service"},{label:"Received",render:r=>fmtDate(r.created_at)},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'}])+'</section>';
-  } else {
-    const config={
-      leads:{rows:leads,cols:[{label:"Name",key:"name"},{label:"Email",key:"email"},{label:"Service",key:"service"},{label:"Budget",key:"budget"},{label:"Received",render:r=>fmtDate(r.created_at)},{label:"Status",render:r=>'<select aria-label="Update inquiry status" data-lead="'+r.id+'" class="status-select" style="background:#111;color:#eee;border:1px solid #444;padding:6px;border-radius:6px">'+["new","contacted","quoted","negotiating","won","lost"].map(s=>'<option '+(r.status===s?'selected':'')+'>'+s+'</option>').join("")+'</select>'}]},
-      clients:{rows:clients,cols:[{label:"Name",key:"name"},{label:"Company",key:"company"},{label:"Email",key:"email"},{label:"Country",key:"country"},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'}]},
-      projects:{rows:projects,cols:[{label:"Project",key:"name"},{label:"Service",key:"service"},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'},{label:"Due date",render:r=>fmtDate(r.due_date)},{label:"Value",render:r=>esc(r.currency||"USD")+" "+esc(r.total_amount??r.quoted_amount??0)}]},
-      tasks:{rows:tasks,cols:[{label:"Task",key:"title"},{label:"Project ID",key:"project_id"},{label:"Priority",key:"priority"},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'},{label:"Due date",render:r=>fmtDate(r.due_date)}]},
-      payments:{rows:payments,cols:[{label:"Description",render:r=>r.description?esc(r.description):esc(r.payment_type)},{label:"Amount",render:r=>esc(r.currency)+" "+esc(r.amount)},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'},{label:"Due date",render:r=>fmtDate(r.due_date)},{label:"Paid at",render:r=>fmtDate(r.paid_at)}]}
-    };
-    const c=config[currentPage];$("content").innerHTML='<section class="section"><div class="section-head"><h2>'+labels[currentPage]+'</h2><span class="muted">'+c.rows.length+' records</span></div>'+tableView(c.rows,c.cols)+'</section>';
-  }
-  document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
-  document.querySelectorAll("[data-lead]").forEach(s=>s.addEventListener("change",async()=>{s.disabled=true;const {error}=await db.from("leads").update({status:s.value}).eq("id",s.dataset.lead);if(error){alert("Could not update status: "+error.message);s.disabled=false;return;}await loadAll();}));
+function go(page){currentPage=page;document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));render()}
+async function logActivity(type,description,ids={}){const {error}=await db.from("activities").insert({activity_type:type,description,...ids});if(error)console.warn("Activity log:",error.message)}
+async function updateStatus(el){el.disabled=true;const tableName=el.dataset.statusTable;const {error}=await db.from(tableName).update({status:el.value,updated_at:new Date().toISOString()}).eq("id",el.dataset.id);el.disabled=false;if(error){alert("Update failed: "+error.message);return}await logActivity("status_updated",tableName+" status changed to "+el.value,tableName==="leads"?{lead_id:el.dataset.id}:{});await loadAll();toast("Status updated.")}
+function field(name,label,type="text",required=false,extra=""){return '<label class="field"><span>'+label+(required?' *':'')+'</span><input name="'+name+'" type="'+type+'" '+(required?'required':'')+' '+extra+'></label>'}
+function selectField(name,label,opts,required=true){return '<label class="field"><span>'+label+(required?' *':'')+'</span><select name="'+name+'" '+(required?'required':'')+'><option value="">Choose…</option>'+opts.map(o=>'<option value="'+esc(o[0])+'">'+esc(o[1])+'</option>').join("")+'</select></label>'}
+function openAdd(page){let title="",fields="";
+if(page==="clients"){title="Add client";fields=field("name","Client name","text",true)+field("email","Email","email")+field("company","Company")+field("phone","Phone")+field("country","Country")+ '<label class="field"><span>Notes</span><textarea name="notes"></textarea></label>';}
+if(page==="projects"){title="Add project";fields=selectField("client_id","Client",cache.clients.map(c=>[c.id,c.name]),true)+field("name","Project name","text",true)+selectField("service","Service",[["Apparel Design","Apparel Design"],["Graphic Design","Graphic Design"],["Branding","Branding"],["Tech Packs","Tech Packs"],["Creative Direction","Creative Direction"],["Other","Other"]],false)+selectField("status","Status",["planning","in_progress","review","completed","on_hold","cancelled"].map(x=>[x,x.replaceAll("_"," ")]))+field("start_date","Start date","date")+field("due_date","Due date","date")+field("total_amount","Project value (USD)","number",false,'min="0" step="0.01"')+'<label class="field"><span>Notes</span><textarea name="notes"></textarea></label>';}
+if(page==="tasks"){title="Add task";fields=selectField("project_id","Project",cache.projects.map(p=>[p.id,p.name]),true)+field("title","Task title","text",true)+selectField("priority","Priority",["low","normal","high","urgent"].map(x=>[x,x]))+selectField("status","Status",["todo","in_progress","done"].map(x=>[x,x.replaceAll("_"," ")]))+field("due_date","Due date","date")+'<label class="field"><span>Description</span><textarea name="description"></textarea></label>';}
+if(page==="payments"){title="Add payment";fields=selectField("project_id","Project",cache.projects.map(p=>[p.id,p.name]),true)+selectField("client_id","Client",cache.clients.map(c=>[c.id,c.name]),false)+field("amount","Amount (USD)","number",true,'min="0" step="0.01"')+selectField("payment_type","Payment type",["deposit","installment","final","refund"].map(x=>[x,x]))+selectField("status","Status",["pending","paid","overdue","cancelled"].map(x=>[x,x]))+field("due_date","Due date","date") + field("description","Description");}
+if(page==="leads"){title="Add inquiry";fields=field("name","Client name","text",true)+field("email","Email","email",true)+field("company","Company")+field("service","Service")+field("budget","Budget")+field("timeline","Timeline")+'<label class="field"><span>Project details</span><textarea name="project_details"></textarea></label>';}
+if(page==="overview")return;
+$("modalRoot").innerHTML='<div class="modal-backdrop" id="modalBackdrop"><form class="modal" id="addForm"><div class="section-head"><h2>'+title+'</h2><button type="button" class="btn" id="closeModal">Close</button></div><div class="form-grid">'+fields+'</div><div class="error" id="formError"></div><div class="modal-actions"><button type="button" class="btn" id="cancelModal">Cancel</button><button class="btn primary" id="saveBtn">Save record</button></div></form></div>';
+$("closeModal").onclick=$("cancelModal").onclick=()=> $("modalRoot").innerHTML="";
+$("modalBackdrop").addEventListener("click",e=>{if(e.target.id==="modalBackdrop")$("modalRoot").innerHTML=""});
+$("addForm").addEventListener("submit",async e=>{e.preventDefault();const btn=$("saveBtn");btn.disabled=true;btn.textContent="Saving…";const fd=new FormData(e.currentTarget);let row=Object.fromEntries(fd.entries());for(const k of Object.keys(row))if(row[k]==="")row[k]=null;
+if(page==="clients"){row.status="active"}
+if(page==="projects"){row.total_amount=Number(row.total_amount||0);row.currency="USD"}
+if(page==="tasks"){row.priority=row.priority||"normal";row.status=row.status||"todo"}
+if(page==="payments"){row.amount=Number(row.amount);row.currency="USD";if(row.client_id===null){const p=cache.projects.find(x=>x.id===row.project_id);row.client_id=p?.client_id||null}}
+const {data,error}=await db.from(page).insert(row).select().single();if(error){$("formError").textContent=error.message;btn.disabled=false;btn.textContent="Save record";return}
+const idKey={leads:"lead_id",clients:"client_id",projects:"project_id",tasks:"project_id",payments:"project_id"}[page];const ids={};if(data?.id&&["leads","clients","projects"].includes(page))ids[idKey]=data.id;await logActivity("record_created","Created "+page.slice(0,-1)+" record",ids);$("modalRoot").innerHTML="";await loadAll();toast(title+" saved successfully.");});
 }
-function go(page){currentPage=page;document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));render();}
 $("nav").addEventListener("click",e=>{const b=e.target.closest("button[data-page]");if(b)go(b.dataset.page)});
-$("loginForm").addEventListener("submit",async e=>{e.preventDefault();$("loginBtn").disabled=true;$("loginError").textContent="Signing in…";const {data,error}=await db.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});$("loginBtn").disabled=false;if(error){$("loginError").textContent=error.message;return;}if((data.user?.email||"").toLowerCase()!==ADMIN_EMAIL){await db.auth.signOut();$("loginError").textContent="This account is not authorized for this workspace.";return;}try{showApp();$("loginError").textContent="";await loadAll();}catch(err){$("content").innerHTML='<div class="section">Could not load records: '+esc(err.message)+'</div>'; }});
+$("loginForm").addEventListener("submit",async e=>{e.preventDefault();$("loginBtn").disabled=true;$("loginError").textContent="Signing in…";const {data,error}=await db.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});$("loginBtn").disabled=false;if(error){$("loginError").textContent=error.message;return}if((data.user?.email||"").toLowerCase()!==ADMIN_EMAIL){await db.auth.signOut();$("loginError").textContent="This account is not authorized.";return}try{showApp();await loadAll()}catch(err){$("content").textContent="Could not load records: "+err.message}});
 $("logoutBtn").addEventListener("click",async()=>{await db.auth.signOut();showLogin()});
 (async()=>{const {data}=await db.auth.getSession();if(data.session?.user?.email?.toLowerCase()===ADMIN_EMAIL){showApp();try{await loadAll()}catch(e){$("content").textContent=e.message}}else{if(data.session)await db.auth.signOut();showLogin()}})();
-</script>
-</body>
-</html>
+</script></body></html>
