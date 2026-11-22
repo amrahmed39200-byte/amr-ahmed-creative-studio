@@ -61,3 +61,15 @@ body{background:var(--paper);background-image:repeating-linear-gradient(135deg,r
 .hero-portrait{object-position:center 10%;object-fit:cover}
 .availability-card{left:5%;bottom:16px}
 }
+
+/* Hero portrait: reference-scale, transparent cutout placement */
+.hero-art{background:transparent!important;overflow:visible;align-items:flex-end;justify-content:flex-end}
+.hero-portrait{position:absolute;right:1%;bottom:0;left:auto;top:auto;width:auto;height:112%;max-width:94%;object-fit:contain;object-position:bottom right;filter:grayscale(1);mix-blend-mode:multiply}
+.hero-art-caption{z-index:3;color:#777981;text-shadow:none}
+.availability-card{display:none!important}
+@media(max-width:900px){.hero-portrait{height:105%;max-width:100%;right:0}}
+@media(max-width:700px){
+.hero-art{min-height:300px;overflow:hidden}
+.hero-portrait{height:112%;max-width:100%;right:0;object-position:bottom right}
+.hero-art-caption{top:8%;right:7%}
+}
