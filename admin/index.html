@@ -131,7 +131,92 @@ tbody tr:hover{background:#ffffff05}
 
 .top-tools{display:flex;align-items:center;gap:9px}.global-search{width:min(260px,30vw);background:#111113;border:1px solid #343237;border-radius:5px;color:#eee;padding:10px 12px;font:11px Inter,sans-serif}.pipeline{display:grid;grid-template-columns:repeat(5,minmax(190px,1fr));gap:10px;overflow:auto;align-items:start}.pipeline-col{min-width:190px}.pipeline-card{padding:13px;margin:9px 0;background:#19191b;border:1px solid #333136;border-radius:5px}.pipeline-card strong,.pipeline-card small{display:block}.pipeline-card small{color:#999;margin-top:7px;font-size:10px}.pipeline-card select{margin-top:12px;max-width:100%}.calendar-row{display:flex;gap:20px;align-items:center;padding:13px 4px;border-bottom:1px solid #29282c}.calendar-row time{width:115px;color:#A3B197;font-size:11px;flex:none}.calendar-row small{display:block;color:#8e8990;font-size:10px;margin-top:4px}.revenue-bars{height:220px;display:grid;grid-template-columns:repeat(6,1fr);gap:14px;align-items:end}.revenue-col{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:end;gap:8px}.revenue-col strong{font-size:10px;color:#c8c4c1}.revenue-track{height:145px;width:min(44px,70%);display:flex;align-items:end;background:#202023;border-radius:3px;overflow:hidden}.revenue-track i{display:block;width:100%;background:#8B9A83;min-height:3px}.revenue-col small{color:#969198;font-size:10px}.text-link{border:0;background:none;color:#dce6d6;text-decoration:underline;text-underline-offset:3px;cursor:pointer}.settings-form{max-width:520px}.settings-form .btn{margin-top:8px}
 @media(max-width:850px){.top-tools{flex-wrap:wrap;justify-content:flex-end}.global-search{width:160px}.pipeline{grid-template-columns:repeat(5,190px)}.revenue-bars{gap:6px}.revenue-col strong{font-size:8px}.calendar-row{gap:10px}.calendar-row time{width:90px}}
-.alert-line{color:#d8b78e;font-size:12px}.text-link{color:#c5d0bf}.top-tools{min-width:0}</style></head>
+.alert-line{color:#d8b78e;font-size:12px}.text-link{color:#c5d0bf}.top-tools{min-width:0}
+/* Warm pastel studio theme */
+:root{
+ --bg:#f7f1e5;--panel:#fffaf0;--panel2:#f0e9dc;--line:#ded6c8;
+ --text:#242321;--muted:#77736d;--gold:#8b9a72;--red:#c76d72;--green:#718b62
+}
+html,body{background:#f7f1e5!important;color:#242321}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f7f1e5!important}
+.shell{background:#f7f1e5!important;grid-template-columns:220px minmax(0,1fr)}
+.side{background:#151515!important;border:0!important;color:#f8f5ef;padding:26px 17px}
+.brand{color:#f7f1e5!important}.brand b{color:#fff!important}
+.brand:before{color:#fff!important}
+.nav-label{color:#89857f!important}
+.nav button{color:#c9c5bd!important;border-radius:8px}
+.nav button.active,.nav button:hover{background:#2b2a28!important;color:#fff!important;box-shadow:inset 3px 0 #e9a9cb!important}
+.side-foot{color:#888!important}
+.main{padding:34px clamp(20px,3.5vw,56px)!important}
+.top{border:0!important;margin-bottom:26px!important}
+.top h1{font:600 clamp(28px,3vw,38px)/1.12 Inter,sans-serif!important;letter-spacing:-.05em;color:#25231f}
+.eyebrow{color:#7e8e68!important}
+.muted,.overview-note{color:#77736d!important}
+.stat,.section{background:#fffaf0!important;border:1px solid #e7dfd1!important;border-radius:17px!important;box-shadow:0 5px 18px #5e4b2a0a!important}
+.stat{padding:19px 20px!important;min-height:112px}
+.stat span{color:#716d65!important}
+.stat strong{font:600 29px/1.1 Inter,sans-serif!important;color:#292722!important;letter-spacing:-.05em}
+.grid .stat:nth-child(1){background:#f7e28a!important;border-color:#f0d978!important}
+.grid .stat:nth-child(2){background:#f3c0dc!important;border-color:#edb3d3!important}
+.grid .stat:nth-child(3){background:#cbd9b2!important;border-color:#bdcda1!important}
+.grid .stat:nth-child(4){background:#c8d7ef!important;border-color:#b9cbe8!important}
+.section{padding:21px!important}
+.section h2{color:#282620!important;font-weight:600!important;font-size:17px!important}
+.btn{background:#fffdf8!important;color:#302e29!important;border:1px solid #ded6c8!important;border-radius:999px!important;padding:10px 16px!important}
+.btn:hover{background:#f0e9dc!important;border-color:#c8bdab!important}
+.btn.primary{background:#171717!important;color:#fff!important;border-color:#171717!important}
+.btn.primary:hover{background:#35332f!important}
+.btn.danger{color:#b95d66!important}
+.hero-copy{background:#f2dfe8!important;border:0!important;border-radius:18px!important;color:#28231f!important}
+.hero-copy .hero-kicker{color:#8d6578!important}
+.hero-copy h2{color:#26221f!important}
+.hero-copy p{color:#6f6268!important}
+.hero-copy:after{color:#9c6f8710!important}
+.hero-actions{gap:10px}
+.hero-action{background:#fffaf0!important;color:#282620!important;border:1px solid #e7dfd1!important;border-radius:16px!important}
+.hero-action:nth-child(1){background:#f7e28a!important;border-color:#f0d978!important}
+.hero-action:nth-child(2){background:#f3c0dc!important;border-color:#edb3d3!important}
+.hero-action:nth-child(3){background:#cbd9b2!important;border-color:#bdcda1!important}
+.hero-action:nth-child(4){background:#c8d7ef!important;border-color:#b9cbe8!important}
+.hero-action .action-icon{color:#34332d!important}
+.project-tile{background:#f4e9d9!important;border:1px solid #eadcc8!important;border-radius:12px!important}
+.project-tile:nth-child(2n){background:#e8eddb!important;border-color:#dce5ca!important}
+.project-mark{background:#ded8ca!important}
+.project-mark i{background:#83966e!important}
+.task-line,.activity-line,.calendar-row{border-color:#ece5d9!important;color:#37342f}
+.task-dot{background:#83966e!important}
+.activity-symbol{background:#f3c0dc!important;color:#45313c!important}
+.pill{background:#e8eddb!important;border:1px solid #d4dfc2!important;color:#586a48!important;border-radius:999px!important}
+table{color:#2c2a25}
+th{color:#817b70!important;border-color:#e9e1d5!important}
+td{color:#393630!important;border-color:#eee8dd!important}
+tbody tr:hover{background:#f6f0e5!important}
+.status-select{background:#fffaf0!important;color:#292722!important;border:1px solid #ded6c8!important}
+.pipeline-card{background:#fffaf0!important;border:1px solid #e7dfd1!important;border-radius:13px!important}
+.pipeline-col{background:#f0eadd!important;border-color:#e3dacb!important}
+.revenue-track{background:#ece5d9!important}
+.revenue-track i{background:#87996f!important}
+.revenue-col strong{color:#4c493f!important}
+.calendar-row time{color:#788665!important}
+.field input,.field select,.field textarea{background:#fffdf8!important;color:#292722!important;border-color:#ded6c8!important}
+.field span{color:#716d65!important}
+.modal{background:#fffaf0!important;color:#292722!important;border-color:#e2d9ca!important}
+.modal h2{color:#292722!important}
+.login{background:#fffaf0!important;color:#292722!important;border-color:#e2d9ca!important}
+.login h1{color:#292722!important}
+.login .field input{background:#fffdf8!important;color:#292722!important}
+.toast{background:#e8eddb!important;color:#4d6140!important;border-color:#d4dfc2!important}
+.alert-line{color:#a65f48!important}
+.text-link{color:#667b53!important}
+.global-search{background:#fffaf0!important;color:#292722!important;border:1px solid #ded6c8!important;border-radius:999px!important}
+.empty{color:#817b70!important}
+@media(max-width:850px){
+ .side{background:#151515!important}
+ .main{padding:22px 14px!important}
+ .grid{gap:9px!important}
+ .stat{border-radius:13px!important}
+}
+</style></head>
 <body>
 <div id="loginView" class="login-wrap"><form id="loginForm" class="login"><div class="eyebrow">Private workspace</div><h1>Studio Admin</h1><p class="muted">Sign in to manage your studio.</p><label class="field"><span>Email address</span><input id="email" type="email" autocomplete="username" required value="amr.ahmed39200@gmail.com"></label><label class="field"><span>Password</span><input id="password" type="password" autocomplete="current-password" required></label><button class="btn primary" style="width:100%" id="loginBtn">Sign in</button><div class="error" id="loginError" role="alert"></div><p class="notice">Private access only. Registration is disabled.</p></form></div>
 <div id="appView" class="shell hidden"><aside class="side"><div class="brand">AMR AHMED <b>Creative Studio</b></div><div class="nav-label">Workspace</div><nav class="nav" id="nav"><button class="active" data-page="overview">Overview</button><button data-page="leads">Inquiries</button><button data-page="clients">Clients</button><button data-page="projects">Projects</button><button data-page="tasks">Tasks</button><button data-page="payments">Payments</button><button data-page="pipeline">Pipeline</button><button data-page="calendar">Calendar</button><button data-page="analytics">Analytics</button><button data-page="activity">Activity</button><button data-page="files">Project Files</button><button data-page="archive">Archive</button><button data-page="settings">Settings</button></nav><div class="side-foot">PRIVATE ADMIN AREA · 2026</div></aside><main class="main"><header class="top"><div><div class="eyebrow">Creative studio management</div><h1 id="pageTitle">Overview</h1></div><div class="top-tools"><input id="globalSearch" class="global-search" placeholder="Search studio…" aria-label="Search studio"><button class="btn" id="logoutBtn">Sign out</button></div></header><div id="toast" class="toast hidden"></div><div id="content"><div class="muted">Loading workspace…</div></div></main></div>
