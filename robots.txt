@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amrahmed39200-byte.github.io/amr-ahmed-creative-studio/sitemap.xml
