@@ -370,3 +370,8 @@ body{background:var(--paper);background-image:repeating-linear-gradient(135deg,r
   .hero-specialties strong { font-size: 20px; }
   .hero-specialties span { font-size: 10px; }
 }
+
+
+/* Keep the final “matter.” word orange */
+.contact-layout h2 { color: #f3e9d9; }
+.contact-layout h2 em { color: var(--accent); }
