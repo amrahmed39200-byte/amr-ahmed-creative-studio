@@ -50,7 +50,7 @@ if(currentPage==="overview"){
 }
 else{const cfg={
 leads:{rows:leads,cols:[{label:"Name",key:"name"},{label:"Email",key:"email"},{label:"Company",key:"company"},{label:"Service",key:"service"},{label:"Budget",key:"budget"},{label:"Received",render:r=>fmtDate(r.created_at)},{label:"Status",render:r=>statusControl("leads",r,["new","contacted","quoted","negotiating","won","lost"])},{label:"Next step",render:r=>r.client_id?'<span class="pill">Client created</span>':'<button class="btn primary" data-convert="' + esc(r.id) + '">Accept & set up</button>'}]},
-clients:{rows:clients,cols:[{label:"Name",key:"name"},{label:"Company",key:"company"},{label:"Email",key:"email"},{label:"Country",key:"country"},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'}]},
+clients:{rows:clients,cols:[{label:"Name",key:"name"},{label:"Company",key:"company"},{label:"Email",key:"email"},{label:"Country",key:"country"},{label:"Status",render:r=>'<span class="pill">'+esc(r.status)+'</span>'},{label:"Actions",render:r=>'<button class="btn danger" data-delete-client="'+esc(r.id)+'">Delete</button>'}]},
 projects:{rows:projects,cols:[{label:"Project",key:"name"},{label:"Client",render:r=>esc(clients.find(c=>c.id===r.client_id)?.name||"—")},{label:"Service",key:"service"},{label:"Status",render:r=>statusControl("projects",r,["planning","in_progress","review","completed","on_hold","cancelled"])},{label:"Due date",render:r=>fmtDate(r.due_date)},{label:"Value",render:r=>esc(r.currency)+" "+esc(r.total_amount)}]},
 tasks:{rows:tasks,cols:[{label:"Task",key:"title"},{label:"Project",render:r=>esc(projects.find(p=>p.id===r.project_id)?.name||"—")},{label:"Priority",key:"priority"},{label:"Status",render:r=>statusControl("tasks",r,["todo","in_progress","done"])},{label:"Due date",render:r=>fmtDate(r.due_date)}]},
 payments:{rows:payments,cols:[{label:"Description",render:r=>esc(r.description||r.payment_type)},{label:"Project",render:r=>esc(projects.find(p=>p.id===r.project_id)?.name||"—")},{label:"Amount",render:r=>esc(r.currency)+" "+esc(r.amount)},{label:"Type",key:"payment_type"},{label:"Status",render:r=>statusControl("payments",r,["pending","paid","overdue","cancelled"])},{label:"Due date",render:r=>fmtDate(r.due_date)}]}
@@ -59,6 +59,7 @@ $("content").innerHTML=html;
 document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
 document.querySelectorAll("[data-status-table]").forEach(s=>s.addEventListener("change",()=>updateStatus(s)));
 document.querySelectorAll("[data-convert]").forEach(b=>b.addEventListener("click",()=>openConvert(b.dataset.convert)));
+document.querySelectorAll("[data-delete-client]").forEach(b=>b.addEventListener("click",()=>deleteClient(b.dataset.deleteClient)));
 const add=$("addBtn");if(add)add.addEventListener("click",()=>openAdd(currentPage));
 }
 
@@ -87,6 +88,17 @@ function openConvert(leadId){
 }
 function go(page){currentPage=page;document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===page));render()}
 async function logActivity(type,description,ids={}){const {error}=await db.from("activities").insert({activity_type:type,description,...ids});if(error)console.warn("Activity log:",error.message)}
+async function deleteClient(clientId){
+ const client=cache.clients.find(c=>c.id===clientId);if(!client)return;
+ const label=client.name||client.email||"this client";
+ if(!confirm("Delete "+label+" permanently?\n\nThe client record will be removed. Related inquiries, projects, tasks, payments and activity history will be kept, but their client link will be cleared."))return;
+ const button=document.querySelector('[data-delete-client="'+CSS.escape(clientId)+'"]');if(button){button.disabled=true;button.textContent="Deleting…"}
+ const {data,error}=await db.from("clients").delete().eq("id",clientId).select("id").maybeSingle();
+ if(error){if(button){button.disabled=false;button.textContent="Delete"}alert("Could not delete client: "+error.message);return}
+ if(!data){alert("No client was deleted. Check your admin access and try again.");await loadAll();return}
+ await logActivity("client_deleted","Deleted client record: "+label);
+ await loadAll();toast("Client deleted. Related records were preserved.");
+}
 async function updateStatus(el){el.disabled=true;const tableName=el.dataset.statusTable;const changes={status:el.value,updated_at:new Date().toISOString()};if(tableName==="payments")changes.paid_at=el.value==="paid"?new Date().toISOString():null;const {error}=await db.from(tableName).update(changes).eq("id",el.dataset.id);el.disabled=false;if(error){alert("Update failed: "+error.message);return}await logActivity("status_updated",tableName+" status changed to "+el.value,tableName==="leads"?{lead_id:el.dataset.id}:{});await loadAll();toast("Status updated.")}
 function field(name,label,type="text",required=false,extra=""){return '<label class="field"><span>'+label+(required?' *':'')+'</span><input name="'+name+'" type="'+type+'" '+(required?'required':'')+' '+extra+'></label>'}
 function selectField(name,label,opts,required=true){return '<label class="field"><span>'+label+(required?' *':'')+'</span><select name="'+name+'" '+(required?'required':'')+'><option value="">Choose…</option>'+opts.map(o=>'<option value="'+esc(o[0])+'">'+esc(o[1])+'</option>').join("")+'</select></label>'}
