@@ -126,3 +126,12 @@ body{background:var(--paper);background-image:repeating-linear-gradient(135deg,r
     right: -3%;
   }
 }
+
+/* Laptop portrait scale */
+@media (min-width: 901px) {
+  .hero-portrait {
+    height: 150%;
+    max-width: none;
+    right: -3%;
+  }
+}
