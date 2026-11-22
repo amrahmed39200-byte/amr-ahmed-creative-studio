@@ -135,3 +135,51 @@ body{background:var(--paper);background-image:repeating-linear-gradient(135deg,r
     right: -3%;
   }
 }
+
+/* AMR brand refresh — cream & orange */
+:root{
+  --paper:#fbf6ec;
+  --paper-2:#f3e9d9;
+  --ink:#17130f;
+  --muted:#81766a;
+  --line:#e7d9c7;
+  --accent:#f36c00;
+  --accent-soft:#ff9a42;
+  --dark:#21170f;
+  --white:#fff8ef;
+  --gutter:clamp(22px,7vw,106px);
+}
+body{background:var(--paper);background-image:repeating-linear-gradient(135deg,rgba(90,55,20,.018) 0,rgba(90,55,20,.018) 1px,transparent 1px,transparent 4px)}
+.site-header{background:rgba(251,246,236,.94)}
+.brand-logo{display:block;width:clamp(112px,11vw,158px);height:auto;max-height:64px;object-fit:contain;object-position:left center}
+.wordmark{display:flex;align-items:center;min-width:0}
+.nav-cta{background:var(--accent);border-color:var(--accent);color:#17130f;box-shadow:0 4px 12px #f36c0030}
+.primary-action{background:var(--accent);color:#17130f;box-shadow:0 4px 12px #f36c0030}
+.secondary-action{background:#fffaf2;border-color:#e3cdb3}
+.hero-panel{background:linear-gradient(112deg,#fffaf2 0%,#fbf0df 58%,#f8dfc1 100%)}
+.hero-art{position:relative;min-height:470px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:transparent!important;isolation:isolate}
+.hero-portrait,.hero-art-caption{display:none!important}
+.hero-orbit{position:absolute;width:min(88%,490px);aspect-ratio:1;border-radius:50%;right:2%;top:50%;transform:translateY(-50%);background:radial-gradient(circle at 38% 35%,#ff9a42 0%,#f36c00 58%,#d94f00 100%);box-shadow:0 28px 70px #e86a0028}
+.hero-orbit:before,.hero-orbit:after{content:"";position:absolute;border:1px solid #fff7e9a8;border-radius:50%;inset:9%}
+.hero-orbit:after{inset:19%}
+.hero-symbol{position:relative;z-index:1;font:800 clamp(170px,23vw,330px)/.8 Manrope,sans-serif;letter-spacing:-.13em;color:#17130f;transform:translateX(-3%)}
+.hero-symbol span{font-size:.24em;color:#fff5e8;vertical-align:top;letter-spacing:-.08em}
+.hero h1 em,.section h2 em{color:var(--accent)}
+.status-dot{background:var(--accent)}
+.client-strip{color:#4d4034}
+.services-section,.faq-section{background:#f3e9d9}
+.testimonials-section{background:#f5eadb}
+.contact-section{background:#21170f}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);border-color:var(--accent);color:#17130f}
+.visual-type i,.type-poster em{color:#f36c00}
+@media(max-width:900px){
+  .hero-art{min-height:420px}
+  .hero-orbit{width:min(78%,420px)}
+  .hero-symbol{font-size:clamp(170px,29vw,280px)}
+}
+@media(max-width:700px){
+  .brand-logo{width:116px;max-height:52px}
+  .hero-art{min-height:290px;margin-top:-5px}
+  .hero-orbit{width:min(76%,280px);right:8%}
+  .hero-symbol{font-size:clamp(170px,48vw,250px)}
+}
