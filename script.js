@@ -92,7 +92,7 @@ if (inquiryForm) {
       console.error("Inquiry submission failed:", error);
       status.textContent = error.message || "Something went wrong. Please email me directly.";
       button.disabled = false;
-      button.textContent = "TRY AGAIN ↗";
+      button.textContent = "TRY AGAIN";
     }
   });
 }
