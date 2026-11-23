@@ -655,3 +655,51 @@ footer > a:not(.wordmark) { display: inline-flex; align-items: center; gap: 10px
   }
   .hero-portrait-sticker img { object-position: center 28%; }
 }
+
+
+/* Hero portrait: original photo with an offset orange duplicate behind it */
+.hero-portrait-sticker {
+  position: relative;
+  isolation: isolate;
+  width: clamp(82px, 7.8vw, 106px);
+  height: clamp(82px, 7.8vw, 106px);
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  transform: rotate(-5deg);
+}
+.hero-portrait-sticker .portrait-echo,
+.hero-portrait-sticker .portrait-main {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+}
+.hero-portrait-sticker .portrait-echo {
+  z-index: -1;
+  transform: translate(9px, 8px);
+  filter: brightness(0) saturate(100%) invert(48%) sepia(93%) saturate(1800%) hue-rotate(3deg) brightness(102%) contrast(103%);
+  opacity: .95;
+}
+.hero-portrait-sticker .portrait-main {
+  z-index: 1;
+  object-position: center;
+  filter: none;
+}
+.hero-portrait-sticker > span {
+  z-index: 2;
+}
+@media (max-width: 700px) {
+  .hero-portrait-sticker {
+    width: clamp(58px, 14vw, 74px);
+    height: clamp(58px, 14vw, 74px);
+  }
+  .hero-portrait-sticker .portrait-echo {
+    transform: translate(6px, 6px);
+  }
+}
