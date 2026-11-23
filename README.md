@@ -1,21 +1,29 @@
 # Amr Ahmed — Creative Studio
 
-Responsive portfolio website built with plain HTML, CSS and JavaScript.
+Responsive portfolio and client-inquiry website built with plain HTML, CSS and JavaScript (no build step).
 
 ## Files
-- `index.html` — website sections and Netlify inquiry form
+- `index.html` — website sections and the project inquiry form
 - `styles.css` — responsive styling
-- `script.js` — mobile navigation and footer year
-- `success.html` — form confirmation page
+- `script.js` — mobile navigation, project filter, and form submission
+- `success.html` — confirmation page shown after a successful inquiry
+- `admin.html`, `admin.css`, `admin.js` — private studio admin panel (inquiries, clients, projects, tasks, payments), signed in with an email magic link
+- `admin/index.html` — admin route
+- `robots.txt`, `sitemap.xml`, `google5ab190668ae6a82d.html` — SEO and Google Search Console verification
 
-## Deploy
-This site is designed for Netlify. Import this GitHub repository in Netlify and publish from the `main` branch with the publish directory set to the repository root. Netlify Forms will detect the form named `project-inquiry` after deployment. Enable form email notifications in the Netlify site settings.
+## How it works
+- **Hosting:** GitHub Pages, published from the `main` branch (repository root).
+- **Inquiry form:** submits to Formspree, which emails the inquiry. The same inquiry is then saved to the `leads` table in Supabase.
+- **Admin panel:** reads and manages data in Supabase. Only the authorised admin email can sign in.
+
+## After changing the site
+- Update the `sitemap.xml` URL if the domain changes.
+- Test the inquiry form: the email should arrive via Formspree and a new row should appear in the admin panel under Inquiries.
 
 ## Before launch
-- Replace the three illustrative project panels with approved real project imagery and accurate project descriptions.
-- Add the preferred Behance profile URL, WhatsApp contact and consultation booking link if desired.
+- Replace the illustrative project panels with approved real project imagery and accurate descriptions.
+- Add the Behance profile URL, WhatsApp contact and consultation booking link if desired.
 - Add client testimonials only with client approval.
-- Test the inquiry form after deployment and configure email notifications.
 
 ## Contact
 amr.ahmed39200@gmail.com
