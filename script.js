@@ -70,16 +70,6 @@ if (inquiryForm) {
         const errorBody = await emailResponse.json().catch(() => ({}));
         throw new Error(errorBody.errors?.map(item => item.message).join(", ") || "The form could not be sent. Please try again.");
       }
-      // Send a personalised confirmation to the client. The email provider key stays server-side.
-      const confirmationResponse = await fetch(`${SUPABASE_URL}/functions/v1/send-client-confirmation`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: submission.name, email: submission.email })
-      });
-      if (!confirmationResponse.ok) {
-        const confirmationError = await confirmationResponse.text().catch(() => "");
-        console.error("Client confirmation email failed:", confirmationResponse.status, confirmationError);
-      }
       const crmResponse = await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
         method: "POST",
         headers: {
