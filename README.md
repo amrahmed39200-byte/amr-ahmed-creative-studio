@@ -7,6 +7,9 @@ Responsive portfolio and client-inquiry website built with plain HTML, CSS and J
 - `styles.css` — responsive styling
 - `script.js` — mobile navigation, project filter, and form submission
 - `success.html` — confirmation page shown after a successful inquiry
+- `404.html` — not-found page (GitHub Pages serves it automatically)
+- `og-image.jpg`, `favicon-*.png`, `apple-touch-icon.png` — social preview and icons
+- `amr-portrait.webp`, `amr-logo.webp` — optimised images used on the page
 - `admin.html`, `admin.css`, `admin.js` — private studio admin panel (inquiries, clients, projects, tasks, payments), signed in with an email magic link
 - `admin/index.html` — admin route
 - `robots.txt`, `sitemap.xml`, `google5ab190668ae6a82d.html` — SEO and Google Search Console verification

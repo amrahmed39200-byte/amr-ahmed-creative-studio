@@ -58,7 +58,7 @@ if (inquiryForm) {
       company: String(data.get("brand") || "").trim() || null,
       service: String(data.get("service") || "").trim() || null,
       project_details: String(data.get("details") || "").trim() || null,
-      budget: null,
+      budget: String(data.get("budget") || "").trim() || null,
       timeline: String(data.get("timeline") || "").trim() || null,
       source: "website"
     };

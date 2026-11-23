@@ -834,3 +834,32 @@ footer > a:not(.wordmark) { display: inline-flex; align-items: center; gap: 10px
     height: calc(100% - 6px);
   }
 }
+
+
+/* Pricing */
+.pricing-layout{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(18px,3vw,36px);margin-top:48px;align-items:stretch}
+.price-feature{display:flex;flex-direction:column;gap:22px;padding:clamp(28px,4vw,48px);border-radius:22px;background:#17171b;color:#f6f6f7}
+.price-label{margin:0;font-size:13px;color:#b8bac1}
+.price-amount{display:flex;align-items:baseline;gap:14px;margin:0;font:600 clamp(72px,9vw,120px)/.9 Georgia,serif;letter-spacing:-.06em}
+.price-amount small{font:500 14px "DM Sans",sans-serif;letter-spacing:0;color:#b8bac1}
+.price-includes{list-style:none;margin:0;padding:0;font-size:14px;line-height:1.5}
+.price-includes li{padding:13px 0;border-top:1px solid #ffffff26}
+.price-feature .primary-action{align-self:flex-start;margin-top:auto;background:#f6f6f7;color:#17171b}
+.price-quote{display:flex;flex-direction:column;padding:clamp(28px,4vw,48px);border:1px solid var(--line);border-radius:22px;background:#ffffff55}
+.price-quote h3{margin:0 0 8px;font:600 28px Georgia,serif;letter-spacing:-.04em}
+.price-quote>p{max-width:440px;margin:0 0 22px;font-size:14px;line-height:1.7;color:#555761}
+.quote-list{list-style:none;margin:0;padding:0}
+.quote-list li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:15px}
+.quote-list li:last-child{border-bottom:1px solid var(--line)}
+.quote-list b{font-size:12px;font-weight:600;color:#777981;white-space:nowrap}
+.price-quote .price-terms{margin:24px 0 26px;font-size:13px;color:#34353b}
+.price-quote .secondary-action{align-self:flex-start;margin-top:auto}
+@media(max-width:800px){.pricing-layout{grid-template-columns:1fr;margin-top:36px}.price-quote .secondary-action{margin-top:0}}
+
+/* Mobile menu: the header's backdrop-filter traps fixed children, so size the panel from the header instead */
+@media(max-width:700px){
+.site-header .nav{position:absolute;top:72px;left:0;right:0;bottom:auto;height:calc(100svh - 72px);overflow-y:auto;gap:0;padding:24px 8vw 40px;background:var(--paper)}
+.site-header .nav a:not(.nav-cta){width:100%;padding:15px 0;border-bottom:1px solid var(--line);font-size:26px;letter-spacing:-.03em}
+.site-header .nav a:not(.nav-cta)::after{display:none}
+.site-header .nav .nav-cta{margin-top:26px;font-size:13px}
+}
