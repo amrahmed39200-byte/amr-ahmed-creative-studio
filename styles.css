@@ -703,3 +703,47 @@ footer > a:not(.wordmark) { display: inline-flex; align-items: center; gap: 10px
     transform: translate(6px, 6px);
   }
 }
+
+
+/* Portrait sticker: organic orange offset backing, matching the reference */
+.hero-portrait-sticker {
+  width: clamp(112px, 10.8vw, 148px);
+  height: clamp(76px, 7.4vw, 102px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  overflow: visible;
+  transform: rotate(-5deg);
+  isolation: isolate;
+}
+.hero-portrait-sticker::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--accent, #f36c00);
+  border-radius: 48% 52% 39% 61% / 45% 44% 56% 55%;
+  transform: translate(12px, 10px);
+}
+.hero-portrait-sticker .portrait-main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  border-radius: 48% 52% 39% 61% / 45% 44% 56% 55%;
+  filter: grayscale(1);
+}
+.hero-portrait-sticker > span {
+  z-index: 2;
+}
+@media (max-width: 700px) {
+  .hero-portrait-sticker {
+    width: clamp(76px, 19vw, 100px);
+    height: clamp(54px, 13.5vw, 72px);
+  }
+  .hero-portrait-sticker::before {
+    transform: translate(7px, 6px);
+  }
+}
