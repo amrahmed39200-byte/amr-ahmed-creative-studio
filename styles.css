@@ -512,3 +512,66 @@ footer > a:not(.wordmark) { display: inline-flex; align-items: center; gap: 10px
 @media (prefers-reduced-motion: reduce) {
   .faq-toggle, .project-visual::after { transition: none !important; }
 }
+
+
+/* Compact editorial portrait sticker in the hero headline */
+.hero h1 em {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(10px, 1.7vw, 22px);
+  white-space: nowrap;
+}
+.hero-portrait-sticker {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  width: clamp(74px, 8.2vw, 112px);
+  height: clamp(74px, 8.2vw, 112px);
+  flex: 0 0 auto;
+  border: 3px solid var(--accent);
+  border-radius: 47% 53% 48% 52% / 54% 45% 55% 46%;
+  background: #f3e9d9;
+  transform: rotate(-7deg);
+  box-shadow: 0 8px 20px rgba(243,108,0,.16);
+}
+.hero-portrait-sticker img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 24%;
+  border-radius: inherit;
+}
+.hero-portrait-sticker > span {
+  position: absolute;
+  top: -13px;
+  right: -20px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #17130f;
+  font: 700 10px/1.1 "DM Sans", sans-serif;
+  letter-spacing: -.02em;
+  white-space: nowrap;
+  transform: rotate(7deg);
+  box-shadow: 0 4px 12px rgba(243,108,0,.2);
+}
+@media (max-width: 700px) {
+  .hero h1 em { gap: 9px; }
+  .hero-portrait-sticker {
+    width: clamp(58px, 15vw, 78px);
+    height: clamp(58px, 15vw, 78px);
+    border-width: 2px;
+  }
+  .hero-portrait-sticker > span {
+    top: -11px;
+    right: -15px;
+    padding: 5px 8px;
+    font-size: 8px;
+  }
+}
+@media (max-width: 390px) {
+  .hero h1 { font-size: 54px; }
+  .hero-portrait-sticker { width: 52px; height: 52px; }
+}
