@@ -87,6 +87,20 @@ if (inquiryForm) {
         button.textContent = "EMAIL SENT";
         return;
       }
+      // Send a confirmation email to the client after the inquiry is accepted.
+      try {
+        const confirmationResponse = await fetch(`${SUPABASE_URL}/functions/v1/send-client-confirmation`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: submission.name, email: submission.email })
+        });
+        if (!confirmationResponse.ok) {
+          const confirmationError = await confirmationResponse.text().catch(() => "");
+          console.error("Client confirmation email failed:", confirmationResponse.status, confirmationError);
+        }
+      } catch (confirmationError) {
+        console.error("Client confirmation email request failed:", confirmationError);
+      }
       window.location.href = "success.html";
     } catch (error) {
       console.error("Inquiry submission failed:", error);
