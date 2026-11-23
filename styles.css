@@ -863,3 +863,13 @@ footer > a:not(.wordmark) { display: inline-flex; align-items: center; gap: 10px
 .site-header .nav a:not(.nav-cta)::after{display:none}
 .site-header .nav .nav-cta{margin-top:26px;font-size:13px}
 }
+
+
+/* Remove the unwanted rectangular black tile behind the portrait */
+.hero-portrait-sticker {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.hero-portrait-sticker .portrait-main {
+  background: transparent !important;
+}
