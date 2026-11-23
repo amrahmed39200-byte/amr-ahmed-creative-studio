@@ -794,3 +794,43 @@ footer > a:not(.wordmark) { display: inline-flex; align-items: center; gap: 10px
     height: calc(100% - 6px);
   }
 }
+
+
+/* Final fix: match the portrait frame to the full vertical source image */
+.hero-portrait-sticker {
+  width: clamp(104px, 8.2vw, 122px);
+  height: clamp(132px, 10.5vw, 154px);
+  overflow: visible;
+  border: 0;
+  background: #111;
+  isolation: isolate;
+}
+.hero-portrait-sticker::before {
+  inset: 0;
+  border-radius: 48% 52% 39% 61% / 45% 44% 56% 55%;
+  transform: translate(11px, 10px);
+}
+.hero-portrait-sticker .portrait-main {
+  position: relative;
+  display: block;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  object-fit: contain;
+  object-position: center;
+  border-radius: 48% 52% 39% 61% / 45% 44% 56% 55%;
+  background: #111;
+  filter: none;
+}
+@media (max-width: 700px) {
+  .hero-portrait-sticker {
+    width: clamp(70px, 18vw, 88px);
+    height: clamp(90px, 23vw, 112px);
+  }
+  .hero-portrait-sticker::before {
+    transform: translate(7px, 6px);
+  }
+  .hero-portrait-sticker .portrait-main {
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+  }
+}
