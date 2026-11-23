@@ -575,3 +575,59 @@ footer > a:not(.wordmark) { display: inline-flex; align-items: center; gap: 10px
   .hero h1 { font-size: 54px; }
   .hero-portrait-sticker { width: 52px; height: 52px; }
 }
+
+
+/* Refined circular portrait and responsive hero layout */
+.hero-portrait-sticker {
+  width: clamp(76px, 7.6vw, 104px);
+  height: clamp(76px, 7.6vw, 104px);
+  border-radius: 50%;
+  overflow: visible;
+  border: 3px solid var(--accent);
+  background: #17130f;
+  box-shadow: 0 7px 22px rgba(243,108,0,.18);
+}
+.hero-portrait-sticker img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 27%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.hero-portrait-sticker > span {
+  top: -12px;
+  right: -17px;
+  z-index: 2;
+  font-size: 9px;
+  padding: 6px 9px;
+}
+@media (max-width: 700px) {
+  .hero h1 {
+    font-size: clamp(48px, 11.5vw, 72px);
+    line-height: .98;
+  }
+  .hero h1 em {
+    gap: 9px;
+    white-space: normal;
+  }
+  .hero-portrait-sticker {
+    width: clamp(54px, 14vw, 70px);
+    height: clamp(54px, 14vw, 70px);
+    border-width: 2px;
+  }
+  .hero-portrait-sticker > span {
+    top: -10px;
+    right: -13px;
+    padding: 5px 7px;
+    font-size: 8px;
+  }
+  .hero-copy {
+    padding: 42px 20px 36px;
+  }
+}
+@media (max-width: 390px) {
+  .hero h1 { font-size: 48px; }
+  .hero-portrait-sticker { width: 50px; height: 50px; }
+}
